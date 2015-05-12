@@ -49,7 +49,7 @@ var InsertStmts = map[string]string{
 
 {{range $_, $table := .Tables}}
 type {{$table.Name}} struct {
-{{range $_, $field := $table.Fields}}  {{$field.Name|capitalize}} {{$field|typenull}}
+{{range $_, $field := $table.Fields}}  {{$field.Name|capitalize}} {{$field|typenull}} ` + "`" + `gorm:"column:{{$field.Name}}"` + "`" + `
 {{end}}}
 {{end}}`
 )
